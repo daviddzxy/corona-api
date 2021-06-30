@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_yasg',
     'api.apps.ApiConfig'
 ]
 
@@ -84,6 +85,10 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
+}
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False
 }
 
 # Password validation
