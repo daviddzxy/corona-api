@@ -10,14 +10,14 @@ class Region(models.Model):
 
 class Vaccine(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    title = models.CharField(max_length=100)
-    manufacturer = models.CharField(max_length=100)
+    title = models.CharField(max_length=150)
+    manufacturer = models.CharField(max_length=150)
 
 
 class VaccinationReport(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    region_id = models.ForeignKey(Region, on_delete=models.CASCADE)
-    vaccine_id = models.ForeignKey(Vaccine, on_delete=models.CASCADE)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    vaccine = models.ForeignKey(Vaccine, on_delete=models.CASCADE)
     dose1_count = models.PositiveIntegerField()
     dose2_count = models.PositiveIntegerField()
     updated_at = models.DateTimeField()
@@ -26,28 +26,28 @@ class VaccinationReport(models.Model):
 
 class District(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    region_id = models.ForeignKey(Region, on_delete=models.CASCADE)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE)
     title = models.CharField(max_length=30)
     code = models.CharField(max_length=6)
 
 
 class City(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    district_id = models.ForeignKey(District, on_delete=models.CASCADE)
+    district = models.ForeignKey(District, on_delete=models.CASCADE)
     title = models.CharField(max_length=30)
     code = models.CharField(max_length=12)
 
 
 class Hospital(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    city_id = models.ForeignKey(City, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    title = models.CharField(max_length=150)
     code = models.CharField(max_length=16)
 
 
 class HospitalStaffReport(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    hospital_id = models.ForeignKey(Hospital, on_delete=models.CASCADE)
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     out_of_work_ratio_doctor = models.FloatField()
     out_of_work_ratio_nurse = models.FloatField()
     out_of_work_ratio_other = models.FloatField()
@@ -58,7 +58,7 @@ class HospitalStaffReport(models.Model):
 
 class PatientsReport(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    hospital_id = models.ForeignKey(Hospital, on_delete=models.CASCADE)
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     ventilated_covid = models.PositiveIntegerField()
     non_covid = models.PositiveIntegerField()
     confirmed_covid = models.PositiveIntegerField()
@@ -70,7 +70,7 @@ class PatientsReport(models.Model):
 
 class BedsReport(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    hospital_id = models.ForeignKey(Hospital, on_delete=models.CASCADE)
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     capacity_all = models.PositiveIntegerField()
     free_all = models.PositiveIntegerField()
     capacity_covid = models.PositiveIntegerField()
@@ -85,7 +85,7 @@ class BedsReport(models.Model):
 
 class AgTestsReport(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
-    district_id = models.ForeignKey(District, on_delete=models.CASCADE)
+    district = models.ForeignKey(District, on_delete=models.CASCADE)
     positivity_rate = models.FloatField()
     positives_count = models.PositiveIntegerField()
     negatives_count = models.PositiveIntegerField()
