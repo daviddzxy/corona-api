@@ -1,33 +1,73 @@
 from rest_framework import generics
-from .serializers import VaccineSerializer, RegionSerializer, HospitalSerializer, DistrictSerializer, CitySerializer
-from .models import Vaccine, Region, Hospital, District, City
+from rest_framework.views import APIView
+from rest_framework.response import Response
+import models
+import serializers
 
 
 class VaccineListView(generics.ListAPIView):
-    queryset = Vaccine.objects.all()
-    serializer_class = VaccineSerializer
+    queryset = models.Vaccine.objects.all()
+    serializer_class = serializers.VaccineSerializer
     http_method_names = ['get']
 
 
 class RegionListView(generics.ListAPIView):
-    queryset = Region.objects.all()
-    serializer_class = RegionSerializer
+    queryset = models.Region.objects.all()
+    serializer_class = serializers.RegionSerializer
     http_method_names = ['get']
 
 
 class HospitalListView(generics.ListAPIView):
-    queryset = Hospital.objects.all()
-    serializer_class = HospitalSerializer
+    queryset = models.Hospital.objects.all()
+    serializer_class = serializers.HospitalSerializer
     http_method_names = ['get']
 
 
 class DistrictListView(generics.ListAPIView):
-    queryset = District.objects.all()
-    serializer_class = DistrictSerializer
+    queryset = models.District.objects.all()
+    serializer_class = serializers.DistrictSerializer
     http_method_names = ['get']
 
 
 class CityListView(generics.ListAPIView):
-    queryset = City.objects.all()
-    serializer_class = CitySerializer
+    queryset = models.City.objects.all()
+    serializer_class = serializers.CitySerializer
     http_method_names = ['get']
+
+
+class AgTestsReportView(generics.ListAPIView):
+    queryset = models.AgTestsReport.objects().all()
+    serializer_class = serializers.AgTestsReportSerializer
+    http_method_names = ['get']
+
+
+class BedsReportView(generics.ListAPIView):
+    queryset = models.BedsReport.objects().all()
+    serializer_class = serializers.BedsReportSerializer
+    http_method_names = ['get']
+
+
+class HospitalStaffReportView(generics.ListAPIView):
+    queryset = models.HospitalStaffReport.objects().all()
+    serializer_class = serializers.HospitalStaffReportSerializer
+    http_method_names = ['get']
+
+
+class PatientsReportView(generics.ListAPIView):
+    queryset = models.PatientsReport.objects().all()
+    serializer_class = serializers.PatientsReportSerializer
+    http_method_names = ['get']
+
+
+class VaccinationReportView(generics.ListAPIView):
+    queryset = models.VaccinationReport.objects().all()
+    serializer_class = serializers.VaccineSerializer
+    http_method_names = ['get']
+
+
+class VaccineVaccinationReport(APIView):
+    def get(self, request, pk):
+        vaccination_reports = models.VaccinationReport.objects.filter(vaccine_id=pk)
+        serializer = serializers.VaccinationReportSerializer(vaccination_reports, many=True)
+        return Response(serializer.data)
+

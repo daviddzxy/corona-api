@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import VaccineListView, RegionListView, HospitalListView, DistrictListView, CityListView
+from .views import (VaccineListView, RegionListView, HospitalListView, DistrictListView, CityListView,
+                    VaccineVaccinationReport)
 
 urlpatterns = [
     path('vaccines/', VaccineListView.as_view()),
@@ -7,5 +8,6 @@ urlpatterns = [
     path('hospitals/', HospitalListView.as_view()),
     path('districts/', DistrictListView.as_view()),
     path('cities/', CityListView.as_view()),
+    path('vaccines/<int:pk>/vaccination-reports', VaccineVaccinationReport.as_view())
 
 ]
