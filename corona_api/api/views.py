@@ -1,8 +1,8 @@
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
-import models
-import serializers
+from . import models
+from . import serializers
 
 
 class VaccineListView(generics.ListAPIView):
@@ -36,31 +36,31 @@ class CityListView(generics.ListAPIView):
 
 
 class AgTestsReportView(generics.ListAPIView):
-    queryset = models.AgTestsReport.objects().all()
+    queryset = models.AgTestsReport.objects.all()
     serializer_class = serializers.AgTestsReportSerializer
     http_method_names = ['get']
 
 
 class BedsReportView(generics.ListAPIView):
-    queryset = models.BedsReport.objects().all()
+    queryset = models.BedsReport.objects.all()
     serializer_class = serializers.BedsReportSerializer
     http_method_names = ['get']
 
 
 class HospitalStaffReportView(generics.ListAPIView):
-    queryset = models.HospitalStaffReport.objects().all()
+    queryset = models.HospitalStaffReport.objects.all()
     serializer_class = serializers.HospitalStaffReportSerializer
     http_method_names = ['get']
 
 
 class PatientsReportView(generics.ListAPIView):
-    queryset = models.PatientsReport.objects().all()
+    queryset = models.PatientsReport.objects.all()
     serializer_class = serializers.PatientsReportSerializer
     http_method_names = ['get']
 
 
 class VaccinationReportView(generics.ListAPIView):
-    queryset = models.VaccinationReport.objects().all()
+    queryset = models.VaccinationReport.objects.all()
     serializer_class = serializers.VaccineSerializer
     http_method_names = ['get']
 
