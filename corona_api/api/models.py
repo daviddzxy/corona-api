@@ -51,7 +51,7 @@ class HospitalStaffReport(models.Model):
     out_of_work_ratio_doctor = models.FloatField(null=True)
     out_of_work_ratio_nurse = models.FloatField(null=True)
     out_of_work_ratio_other = models.FloatField(null=True)
-    reported_at = models.DateTimeField
+    reported_at = models.DateTimeField()
     updated_at = models.DateTimeField()
     published_on = models.DateField()
 
@@ -63,7 +63,7 @@ class PatientsReport(models.Model):
     non_covid = models.PositiveIntegerField(null=True)
     confirmed_covid = models.PositiveIntegerField(null=True)
     suspected_covid = models.PositiveIntegerField(null=True)
-    reported_at = models.DateTimeField
+    reported_at = models.DateTimeField()
     updated_at = models.DateTimeField()
     published_on = models.DateField()
 
