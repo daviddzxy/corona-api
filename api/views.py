@@ -18,13 +18,16 @@ class RegionListView(generics.ListAPIView):
 class HospitalListView(generics.ListAPIView):
     queryset = Hospital.objects.all()
     serializer_class = HospitalSerializer
+    http_method_names = ['get']
 
 
 class DistrictListView(generics.ListAPIView):
     queryset = District.objects.all()
     serializer_class = DistrictSerializer
+    http_method_names = ['get']
 
 
 class CityListView(generics.ListAPIView):
     queryset = City.objects.all()
     serializer_class = CitySerializer
+    http_method_names = ['get']
