@@ -49,7 +49,7 @@ class AgTestsReportSerializer(Serializer):
     published_on = DateField()
 
 
-class HospitalStaffReportSerializer(serializers.Serializer):
+class HospitalStaffReportSerializer(Serializer):
     id = IntegerField()
     hospital_id = IntegerField()
     out_of_work_ratio_doctor = FloatField()
@@ -60,7 +60,7 @@ class HospitalStaffReportSerializer(serializers.Serializer):
     published_on = DateField()
 
 
-class BedsReportSerializer(serializers.Serializer):
+class BedsReportSerializer(Serializer):
     id = IntegerField()
     hospital_id = IntegerField()
     capacity_all = IntegerField()
@@ -75,7 +75,7 @@ class BedsReportSerializer(serializers.Serializer):
     published_on = DateField()
 
 
-class PatientsReportSerializer(serializers.Serializer):
+class PatientsReportSerializer(Serializer):
     id = IntegerField()
     hospital_id = IntegerField()
     ventilated_covid = IntegerField()
@@ -87,7 +87,7 @@ class PatientsReportSerializer(serializers.Serializer):
     published_on = DateField()
 
 
-class VaccinationReportSerializer(serializers.Serializer):
+class VaccinationReportSerializer(Serializer):
     id = CharField()
     region_id = IntegerField()
     vaccine_id = IntegerField()
