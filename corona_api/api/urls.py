@@ -11,6 +11,5 @@ urlpatterns = [
     path('bedsreports/', views.BedsReportView.as_view()),
     path('hospitalstaffreports/', views.HospitalStaffReportView.as_view()),
     path('patientsreports/', views.PatientsReportView.as_view()),
-    path('vaccinationreports/', views.VaccinationReportView.as_view()),
-    path('vaccines/<int:pk>/vaccination-reports', views.VaccineVaccinationReport.as_view())
+    path('vaccinationreports/', views.VaccinationReportView.as_view())
 ]

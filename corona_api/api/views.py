@@ -1,6 +1,5 @@
 from rest_framework import generics
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from . import models
 from . import serializers
 
@@ -39,35 +38,33 @@ class AgTestsReportView(generics.ListAPIView):
     queryset = models.AgTestsReport.objects.all().order_by('id')
     serializer_class = serializers.AgTestsReportSerializer
     http_method_names = ['get']
+    fitler_fields = ['district_id', 'published_on']
 
 
 class BedsReportView(generics.ListAPIView):
     queryset = models.BedsReport.objects.all().order_by('id')
     serializer_class = serializers.BedsReportSerializer
     http_method_names = ['get']
+    fitler_fields = ['hospital_id', 'published_on']
 
 
 class HospitalStaffReportView(generics.ListAPIView):
     queryset = models.HospitalStaffReport.objects.all().order_by('id')
     serializer_class = serializers.HospitalStaffReportSerializer
     http_method_names = ['get']
+    fitler_fields = ['hospital_id', 'published_on']
 
 
 class PatientsReportView(generics.ListAPIView):
     queryset = models.PatientsReport.objects.all().order_by('id')
     serializer_class = serializers.PatientsReportSerializer
     http_method_names = ['get']
+    filter_fields = ['hospital_id', 'published_on']
 
 
 class VaccinationReportView(generics.ListAPIView):
     queryset = models.VaccinationReport.objects.all().order_by('id')
     serializer_class = serializers.VaccinationReportSerializer
     http_method_names = ['get']
-
-
-class VaccineVaccinationReport(APIView):
-    def get(self, request, pk):
-        vaccination_reports = models.VaccinationReport.objects.filter(vaccine_id=pk)
-        serializer = serializers.VaccinationReportSerializer(vaccination_reports, many=True)
-        return Response(serializer.data)
-
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['vaccine_id', 'published_on']
