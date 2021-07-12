@@ -45,7 +45,7 @@ class BedsReportView(generics.ListAPIView):
     queryset = models.BedsReport.objects.all().order_by('id')
     serializer_class = serializers.BedsReportSerializer
     http_method_names = ['get']
-    fitler_fields = ['hospital_id', 'published_on']
+    filter_fields = ['hospital_id', 'published_on']
 
 
 class HospitalStaffReportView(generics.ListAPIView):
