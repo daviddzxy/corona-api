@@ -38,7 +38,7 @@ class AgTestsReportView(generics.ListAPIView):
     queryset = models.AgTestsReport.objects.all().order_by('id')
     serializer_class = serializers.AgTestsReportSerializer
     http_method_names = ['get']
-    fitler_fields = ['district_id', 'published_on']
+    filter_fields = ['district_id', 'published_on']
 
 
 class BedsReportView(generics.ListAPIView):
@@ -52,7 +52,7 @@ class HospitalStaffReportView(generics.ListAPIView):
     queryset = models.HospitalStaffReport.objects.all().order_by('id')
     serializer_class = serializers.HospitalStaffReportSerializer
     http_method_names = ['get']
-    fitler_fields = ['hospital_id', 'published_on']
+    filter_fields = ['hospital_id', 'published_on']
 
 
 class PatientsReportView(generics.ListAPIView):
@@ -67,4 +67,4 @@ class VaccinationReportView(generics.ListAPIView):
     serializer_class = serializers.VaccinationReportSerializer
     http_method_names = ['get']
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['vaccine_id', 'published_on']
+    filter_fields = ['vaccine_id', 'published_on']
