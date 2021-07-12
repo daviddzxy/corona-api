@@ -7,9 +7,9 @@ urlpatterns = [
     path('hospitals/', views.HospitalListView.as_view()),
     path('districts/', views.DistrictListView.as_view()),
     path('cities/', views.CityListView.as_view()),
-    path('agtestreports/', views.AgTestsReportView.as_view()),
-    path('bedsreports/', views.BedsReportView.as_view()),
-    path('hospitalstaffreports/', views.HospitalStaffReportView.as_view()),
-    path('patientsreports/', views.PatientsReportView.as_view()),
-    path('vaccinationreports/', views.VaccinationReportView.as_view())
+    path('ag-test-reports/', views.AgTestsReportView.as_view()),
+    path('beds-reports/', views.BedsReportView.as_view()),
+    path('hospital-staff-reports/', views.HospitalStaffReportView.as_view()),
+    path('patients-reports/', views.PatientsReportView.as_view()),
+    path('vaccination-reports/', views.VaccinationReportView.as_view())
 ]
