@@ -103,9 +103,13 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Corona API',
- #  'DESCRIPTION': 'Your project description',
+    'DESCRIPTION': 'Reimplementation of https://data.korona.gov.sk/ suitable for developers.',
     'VERSION': '1.0.0',
     # OTHER SETTINGS
+}
+
+FETCH_SETTINGS = {
+    'TIME': '01:00'
 }
 
 # Password validation
