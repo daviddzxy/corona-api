@@ -1,2 +1,2 @@
-web: gunicorn corona_api.corona_api.wsgi
+web: gunicorn pythonpath corona_api corona_api.wsgi
 
