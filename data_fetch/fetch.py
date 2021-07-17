@@ -6,7 +6,7 @@ import pathlib
 import os
 import schedule
 import time
-from corona_api.corona_api.settings.development import DATABASES, FETCH_SETTINGS
+from corona_api.corona_api.settings.production import DATABASES, FETCH_SETTINGS
 from database import Database, ENTITIES, REPORTS
 
 DB_SETTINGS = DATABASES['default']
