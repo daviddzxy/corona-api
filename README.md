@@ -1,5 +1,5 @@
 # corona-api
-This project is a reimplementation of the [data.korona.gov.sk API](https://data.korona.gov.sk/). The original API does not support querying of reports by entity id to which the report belongs to and it also does not allow querying reports by published on date field. This API reimplementation allows such queries, making it suitable as a backend service for web based clients. The original API is used as a datasource for this reimplementation. The schema and examples of this api can be found [here](https://corona-api-sk.herokuapp.com/api/schema/swagger/).
+This project is a reimplementation of the [data.korona.gov.sk API](https://data.korona.gov.sk/). The original API does not support querying of reports by entity id to which the report belongs to and it also does not allow querying of reports by published_on date field. This API reimplementation allows such queries, making it suitable as a backend service for web based clients. The original API is used as a datasource for this reimplementation. The schema and examples of this api can be found [here](https://corona-api-sk.herokuapp.com/api/schema/swagger/).
 
 To run this API locally follow these instructions.
 ```
